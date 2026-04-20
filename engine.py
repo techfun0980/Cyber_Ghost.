@@ -1,26 +1,21 @@
-class GameEngine:
-    def __init__(self):
-        self.missions = {
-            1: {
-                "title": "Dehradun Node Discovery",
-                "task": "Scan network for entry points.",
-                "solution": "scan",
-                "success": "[JINI]: Open Port found at 80. Gateway ready."
-            },
-            2: {
-                "title": "Firewall Breach",
-                "task": "Bypass gateway using 'overload' protocol.",
-                "solution": "overload",
-                "success": "[SUCCESS]: Firewall bypassed. System decrypted."
-            }
-        }
-        self.current_level = 1
-
-    def process(self, cmd):
+def process_input(self, cmd):
+        cmd = cmd.lower().strip() # Normalize input
         mission = self.missions.get(self.current_level)
-        if not mission: return "MOKSHA ACHIEVED."
         
+        if not mission:
+            return "DIGITAL MOKSHA ACHIEVED. ALL LEVELS CLEARED."
+
+        # System Commands (Always Active)
+        if cmd == "help":
+            return f"--- MISSION PROTOCOL ---\nOBJECTIVE: {mission['task']}\nHINT: {mission['hint']}\nLEVEL: {self.current_level}"
+        
+        if cmd == "clear":
+            return "CLEAR_SCREEN"
+
+        # Mission Progress Logic
         if cmd == mission["solution"]:
             self.current_level += 1
-            return f"{mission['success']}\n\n[NEXT]: {self.missions.get(self.current_level, {}).get('title', 'END')}"
-        return f"[ERROR]: '{cmd}' failed. Type 'help' for mission info."
+            next_m = self.missions.get(self.current_level, {"title": "Final Frontier"})
+            return f"{mission['success']}\n\n[NEW MISSION]: {next_m['title']}"
+        else:
+            return f"[ERROR]: Command '{cmd}' failed. Access Denied."
