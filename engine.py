@@ -27,3 +27,11 @@ self.missions[3] = {
     "solution": "sniff --packet",
     "success": "[JINI]: Packet Captured! Decrypting password... Key found: 'Dharma_2026'."
 }
+# engine.py mein self.missions ko upgrade karein
+self.missions[3] = {
+    "title": "The Subnet Stalker",
+    "task": "Intercept the encrypted handshake between Node A and Node B.",
+    "hint": "Use 'sniff --packet' to capture the data stream.",
+    "solution": "sniff --packet",
+    "success": "[JINI]: Packet Captured! Decrypting... Key found: 'Dharma_2026'.\n[SYSTEM]: Access granted to Secure Subnet."
+}
