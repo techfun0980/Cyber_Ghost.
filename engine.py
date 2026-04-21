@@ -19,3 +19,11 @@ def process_input(self, cmd):
             return f"{mission['success']}\n\n[NEW MISSION]: {next_m['title']}"
         else:
             return f"[ERROR]: Command '{cmd}' failed. Access Denied."
+# engine.py update
+self.missions[3] = {
+    "title": "The Subnet Stalker",
+    "task": "Intercept the encrypted handshake between Node A and Node B.",
+    "hint": "Use 'sniff --packet' to capture the data stream.",
+    "solution": "sniff --packet",
+    "success": "[JINI]: Packet Captured! Decrypting password... Key found: 'Dharma_2026'."
+}
