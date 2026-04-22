@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "V24.0 Overlord Protocol Initialized"
+git branch -M main
+git remote add origin [Aapke_Repo_Ka_Link]
+git push -u origin main
